@@ -1,6 +1,6 @@
 	registerEA(
 		"mql_indicator_loader_plugin",
-		"mql_plugin to make MQL-based indicators runnable on Fintechee(v1.06)",
+		"mql_plugin to make MQL-based indicators runnable on Fintechee(v1.07)",
 		[{ // parameters
 			name: "definition",
 			value: "",
@@ -165,7 +165,7 @@
 							var jiHighest = Module.addFunction(function (uid, chartHandle, mode, count, start) {
 								var obj = window.mqlIndicatorsBuffer[uid + ""]
 								var md = window.mqlIndicators[obj.name].module.UTF8ToString(mode)
-								var arr = getDataFromIndi(obj.context, indiHandle, md)
+								var arr = getDataFromIndi(obj.context, chartHandle, md)
 								var highest = -Number.MAX_VALUE
 								var idx = -1
 								for (var i = start; i < start + count && i >= 0 && i < arr.length; i++) {
@@ -179,7 +179,7 @@
 							var jiLowest = Module.addFunction(function (uid, chartHandle, mode, count, start) {
 								var obj = window.mqlIndicatorsBuffer[uid + ""]
 								var md = window.mqlIndicators[obj.name].module.UTF8ToString(mode)
-								var arr = getDataFromIndi(obj.context, indiHandle, md)
+								var arr = getDataFromIndi(obj.context, chartHandle, md)
 								var lowest = Number.MAX_VALUE
 								var idx = -1
 								for (var i = start; i < start + count && i >= 0 && i < arr.length; i++) {
